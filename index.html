@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra | Restore your rhythm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text: #F5F5F1;
+            --accent: #564787;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: linear-gradient(180deg, #000 0%, #2A1B3D 100%) fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        #stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.9;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            padding: 1.25rem;
+            background: rgba(0,0,0,.8);
+            backdrop-filter: blur(5px);
+            z-index: 10;
+        }
+
+        .container {
+            width: min(90%, 800px);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            font-size: 0.9em;
+            font-weight: 300;
+        }
+
+        .nav-links a:hover, 
+        .nav-links .active a {
+            opacity: 1;
+        }
+
+        main {
+            flex: 1;
+            padding: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-weight: 190;
+        }
+
+        .input-container {
+            display: flex;
+            background: rgba(255,255,255,.05);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: auto;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            flex: 1;
+            padding: 1.25rem;
+            border: none;
+            background: none;
+            color: var(--text);
+            font-size: 1em;
+            min-width: 0;
+        }
+
+        input::placeholder {
+            color: rgba(255,255,255,.5);
+        }
+
+        button {
+            padding: 1.25rem 2.5rem;
+            border: none;
+            background: var(--accent);
+            color: var(--text);
+            font-size: 1em;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        button:hover {
+            background: #665599;
+        }
+
+        footer {
+            padding: 1rem;
+            text-align: center;
+            opacity: .7;
+            background: rgba(0,0,0,.5);
+            font-size: 0.8em;
+        }
+
+        .thank-you {
+            margin-top: 0.5rem;
+            font-weight: 190;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.7s ease;
+            text-align: center;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .thank-you.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            .container { 
+                width: 80%; 
+            }
+            input, button { 
+                padding: 1rem; 
+            }
+            main {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="stars"></div>
+    <nav>
+        <div class="container">
+            <div class="logo">noctra</div>
+            <ul class="nav-links">
+                <li class="active"><a href="/">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section>
+            <h2>Thank you for stopping by!</h2>
+            <p>Noctra is dedicated to transforming the way you recover and recharge through sleep. We believe that nighttime is the foundation for daytime performance, and we're here to optimize it with a natural, sustainable approach to restoration.</p>
+        </section>
+
+        <section>
+            <p>Our vision is simple: Deep rest without sedation, energy without overstimulation. </p>
+            <br>
+            <p>We're in the early stages of our journey, tinkering and gathering insights to create something truly special. If you're excited about becoming an insider, we'd love to connect!</p>
+            <br>
+        </section>
+
+        <section>
+            <form class="input-container" id="contact-form">
+                <input type="email" name="contact" placeholder="you@email.com.." required>
+                <button type="submit">Connect</button>
+            </form>
+            <div style="max-width: 500px; margin: 0 auto;">
+                <p class="thank-you">Thanks for trusting us. We'll be in touch soon — sweet dreams.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Noctra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numStars = 30; // Adjust number of stars
+            const maxY = window.innerHeight * 0.45; 
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                const x = Math.random() * 100; // percentage across width
+                const y = Math.random() * maxY;
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}px`;
+                
+                // Slight random size variation
+                const size = 1 + Math.random();
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random opacity
+                star.style.opacity = 0.17 + Math.random() * 0.3;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Create stars when page loads
+        window.addEventListener('load', createStars);
+        
+        // Recreate stars when window is resized
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const starsContainer = document.getElementById('stars');
+                starsContainer.innerHTML = '';
+                createStars();
+            }, 100);
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const input = document.querySelector('input[name="contact"]');
+            const contactInfo = input.value.trim();
+            const thankYou = document.querySelector('.thank-you');
+
+            if (contactInfo === '') return;
+
+            fetch('https://formsubmit.co/ajax/sanket.sshreemal@gmail.com', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    contact: contactInfo
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                input.value = '';
+                thankYou.classList.add('visible');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was a problem submitting your info. Please try again.');
+            });
+        });
+
+        document.querySelector('input[name="contact"]').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value.trim() !== '') {
+                e.preventDefault();
+                document.querySelector('button[type="submit"]').click();
+            }
+        });
+    </script>
+</body>
+</html> 
